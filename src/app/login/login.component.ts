@@ -27,12 +27,12 @@ export class LoginComponent {
         sessionStorage.setItem('usuario', JSON.stringify(response.dados));
         setTimeout(() => {
           this.router.navigate(['inicio']);
-          this.fazendoLogin = false;
+          window.location.reload();
         }, 200);
 
       } else if (response.status === 2) {
         Toasts.mensagemErro(response.mensagem);
-
+        this.fazendoLogin = false;
       }
     }, () => {
       Toasts.mensagemErroConexao();

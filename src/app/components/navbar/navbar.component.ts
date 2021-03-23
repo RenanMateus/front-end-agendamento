@@ -136,5 +136,6 @@ export class NavbarComponent implements OnInit {
   sair() {
     sessionStorage.removeItem('usuario');
     this.router.navigate(['login']);
+    window.location.reload();
   }
 }

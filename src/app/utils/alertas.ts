@@ -17,14 +17,14 @@ export const Toasts = {
 
   mensagemErro(mensagem: string): void {
     this.toast.fire(<any>{
-      icon: 'danger',
+      icon: 'error',
       title: mensagem
     });
   },
 
   mensagemErroConexao(): void {
     this.toast.fire(<any>{
-      icon: 'danger',
+      icon: 'error',
       title: 'Erro interno no servidor, tente mais tarde!'
     });
   },
