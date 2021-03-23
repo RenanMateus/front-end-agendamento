@@ -1,0 +1,13 @@
+.spinnerLogin {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #214478;
+  text-align: center;
+  font-size: 33pt;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}

@@ -1,0 +1,37 @@
+<div *ngIf="fazendoLogin" class="spinnerLogin">
+  <div class="spinner-grow text-primary" style="width: 150px; height: 150px;">
+  </div>
+  <br>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center; min-height:600px">
+  <div class="card" style="width: 20rem;">
+    <div class="card-body">
+      <div style="text-align: center;"><img src="" alt="Logo Sistema" /></div>
+      <form #loginForm="ngForm" autocomplete="off">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="login" class="form-control" id="login" aria-describedby="emailHelp"
+            [(ngModel)]="usuario.email" placeholder="Login" />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Senha</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+            [(ngModel)]="usuario.senha" placeholder="Senha" />
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="submit" class="btn btn-primary" (click)="login()"
+              [disabled]="loginForm.invalid">Entrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid" style="font-size:8pt; text-align: center">
+        Agendamentos 2021 <br>
+        &copy; Todos os direitos reservados.
+      </div>
+    </footer>
+  </div>
+</div>

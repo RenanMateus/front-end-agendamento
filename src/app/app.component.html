@@ -1,10 +1,10 @@
 <div class="wrapper">
-  <div class="sidebar" data-color="roxo">
+  <div class="sidebar" data-color="roxo" *ngIf="autenticado">
     <app-sidebar></app-sidebar>
   </div>
   <div class="main-panel">
-    <app-navbar></app-navbar>
+    <app-navbar *ngIf="autenticado"></app-navbar>
     <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <app-footer *ngIf="autenticado"></app-footer>
   </div>
 </div>

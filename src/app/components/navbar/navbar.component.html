@@ -21,12 +21,12 @@
           <a class="nav-link" style="color: white">
             <i class="now-ui-icons users_single-02"></i>
             <p>
-              <span>TESTE</span>
+              <span>{{ nomeUsuario }}</span>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white">
+          <a class="nav-link" style="color: white" (click)="sair()">
             <i class="fa fa-sign-out"></i>
             <span class="d-lg-none d-md-block">Sair</span>
           </a>

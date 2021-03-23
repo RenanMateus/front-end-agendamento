@@ -1,0 +1,42 @@
+.componente-Centralizado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.espacamento {
+  margin-top: 15px;
+}
+
+.margemCabecalho {
+  margin-top: 20px;
+}
+
+h5 {
+  font-size: 12pt !important;
+}
+
+.myAlert {
+  padding: 5px;
+  color: red;
+  border-radius: 8px;
+  font-size: 10pt;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+input.ng-reflect-minlength,
+input.ng-reflect-maxlength {
+  border-color: red;
+}
+
+.spinnerCarregando {
+  text-align: center;
+  color: #214478;
+  margin-left: auto;
+  margin-right: auto;
+}

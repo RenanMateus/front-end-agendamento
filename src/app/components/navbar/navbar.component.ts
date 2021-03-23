@@ -1,5 +1,4 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,20 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  private listTitles: any[];
-  location: Location;
-  mobile_menu_visible: any = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
+  mobile_menu_visible: any = 0;
+  isCollapsed = true;
+  nomeUsuario: string;
 
-  public isCollapsed = true;
-
-  constructor(location: Location, private element: ElementRef, private router: Router) {
-    this.location = location;
+  constructor(private element: ElementRef, private router: Router) {
     this.sidebarVisible = false;
   }
 
   ngOnInit() {
+    const nome = <string>JSON.parse(sessionStorage.getItem('usuario')).nome;
+    this.nomeUsuario = (nome.split(' ').length > 1) ? nome.split(' ')[0] + ' ' + nome.split(' ')[1] : nome;
+
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     this.router.events.subscribe((event) => {
@@ -80,7 +79,7 @@ export class NavbarComponent implements OnInit {
   }
 
   sidebarToggle() {
-    var $toggle = document.getElementsByClassName('navbar-toggler')[0];
+    let $toggle = document.getElementsByClassName('navbar-toggler')[0];
 
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
@@ -132,5 +131,10 @@ export class NavbarComponent implements OnInit {
       this.mobile_menu_visible = 1;
 
     }
+  }
+
+  sair() {
+    sessionStorage.removeItem('usuario');
+    this.router.navigate(['login']);
   }
 }
