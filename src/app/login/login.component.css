@@ -11,3 +11,11 @@
   justify-content: center;
   z-index: 10000;
 }
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 800px;
+  background-color: #5700a7;
+}

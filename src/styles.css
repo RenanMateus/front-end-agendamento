@@ -1,7 +1,16 @@
-.componente-centralizado {
+.centralizar {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.meuCard {
+  background-color: white;
+  min-height: 650px;
+}
+
+.meuHr {
+  border-top: 1px solid black;
 }
 
 .row {
@@ -17,8 +26,13 @@
   margin-top: 20px;
 }
 
+.margemLabel {
+  margin-top: 15px;
+}
+
 h5 {
   font-size: 12pt !important;
+  margin-bottom: 5px !important;
 }
 
 .myAlert {

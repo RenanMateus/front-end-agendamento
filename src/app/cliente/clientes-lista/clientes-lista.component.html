@@ -1,1 +1,58 @@
-<p>clientes-lista works!</p>
+<div class="panel-header">
+</div>
+
+<div class="meuCard">
+  <div class="row">
+    <div class="col-lg-12 margemCabecalho">
+      <h3>Clientes</h3>
+    </div>
+
+    <div class="spinnerCarregando" *ngIf="carregando">
+      <div class="spinner-border"></div>
+      <br>
+      <span>Carregando Informações</span>
+    </div>
+
+    <div class="col-lg-12" *ngIf="!carregando">
+      <button class="btn btn-primary float-right" (click)="novo()">Cadastrar Cliente</button>
+    </div>
+
+    <div class="col-lg-12 espacamento" *ngIf="!carregando" style="overflow-x: auto">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF / CNPJ</th>
+            <th scope="col">Razão Social</th>
+            <th scope="col">Segmento</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Responsável</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes | paginate: { itemsPerPage: 20, currentPage: paginaAtual, totalItems: totalItens }">
+            <th scope="row">{{ cliente.nome }}</th>
+            <th scope="row">{{ cliente.cpfCnpj }}</th>
+            <th scope="row">{{ cliente.razaoSocial }}</th>
+            <th scope="row">{{ cliente.segmento }}</th>
+            <th scope="row">{{ cliente.cidade }}</th>
+            <th scope="row">{{ mascararTelefone(cliente.telefone1) }}</th>
+            <th scope="row">{{ cliente.responsavel }}</th>
+            <th scope="row">
+              <button class="btn btn-warning btn-sm" (click)="editar(cliente.id)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger btn-sm" (click)="excluirCliente(cliente.id)" style="margin-left: 10px"><i
+                  class="fa fa-trash"></i></button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="centralizar">
+        <pagination-controls (pageChange)="listarClientes($event)" maxSize="3" responsive="true" previousLabel="Anterior"
+          nextLabel="Proximo"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+</div>

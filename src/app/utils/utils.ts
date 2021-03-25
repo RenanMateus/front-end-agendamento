@@ -85,6 +85,25 @@ export const Utils = {
     }
   },
 
+  mascararTelefone(telefone: string) {
+    const fone = telefone.replace(/^0/, '');
+    if (fone.length === 8) {
+      return fone.substring(0, 4) + '-' + fone.substring(4);
+
+    } else if (fone.length === 9) {
+      return fone.substring(0, 5) + '-' + fone.substring(5);
+
+    } else if (fone.length === 10) {
+      return '(' + fone.substring(0, 2) + ')' + fone.substring(2, 6) + '-' + fone.substring(6);
+
+    } else if (fone.length === 11) {
+      return '(' + fone.substring(0, 2) + ')' + fone.substring(2, 7) + '-' + fone.substring(7);
+
+    } else {
+      return telefone;
+    }
+  },
+
   obterHoraAtual() {
     return (
       new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
@@ -102,14 +121,11 @@ export const Utils = {
   },
 
   verificarPermissao(codigo: string, permissoes: any): boolean {
-    let permissao: boolean;
-    permissoes.map(element => {
-      if (element.codigo === codigo) {
-        permissao = true;
-      }
-    });
-    if (permissao) {
-      return permissao;
+    if (permissoes.indexOf(codigo) > -1) {
+      return true;
+
+    } else {
+      return false;
     }
   }
 };
