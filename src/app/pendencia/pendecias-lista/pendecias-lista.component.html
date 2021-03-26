@@ -1,3 +1,61 @@
 <div class="panel-header">
 </div>
-<p>pendecias-lista works!</p>
+
+<div class="meuCard">
+  <div class="row">
+    <div class="col-lg-12 margemCabecalho">
+      <h3>Pendências</h3>
+    </div>
+
+    <div class="spinnerCarregando" *ngIf="carregando">
+      <div class="spinner-border"></div>
+      <br>
+      <span>Carregando Informações</span>
+    </div>
+
+    <div class="col-lg-12" *ngIf="!carregando">
+      <button class="btn btn-primary float-right" (click)="novo()">Cadastrar Pendência</button>
+    </div>
+
+    <div class="col-lg-12 espacamento" *ngIf="!carregando" style="overflow-x: auto">
+      <table class="table table-striped">
+        <thead>
+          <tr style="text-align: center;">
+            <th scope="col">Nome</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Finalizado</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let pendencia of pendencias | paginate: { itemsPerPage: 20, currentPage: paginaAtual, totalItems: totalItens }"
+            style="text-align: center;">
+            <th scope="row">{{ pendencia.nome }}</th>
+            <th scope="row">{{ pendencia.clientes ? pendencia.clientes.nome : '' }}</th>
+            <th scope="row">
+              <i class="fa fa-{{pendencia.situacao == 1 ? 'close' : 'check'}}"
+                [ngStyle]="{'color': pendencia.situacao == 1 ? '#F00' : '#1F7', 'font-size': '13pt'}"></i>
+            </th>
+            <th scope="row">{{ pendencia.descricao }}</th>
+            <th scope="row">
+              <button class="btn btn-success btn-sm" (click)="finalizarPendencia(pendencia)"
+                ngbTooltip="Finalizar Pendência" *ngIf="pendencia.situacao == 1"><i class="fa fa-check"></i></button>
+              <button class="btn btn-warning btn-sm" (click)="visualizar(pendencia.id)"
+                ngbTooltip="Visualizar Pendência" style="margin-left: 10px; margin-right: 10px; color: #000;"><i
+                  class="fa fa-eye"></i></button>
+              <button class="btn btn-danger btn-sm" (click)="excluirPendencia(pendencia.id)"
+                ngbTooltip="Excluir Pendência"><i class="fa fa-trash"></i></button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="centralizar">
+        <pagination-controls (pageChange)="listarPendencias($event)" maxSize="3" responsive="true"
+          previousLabel="Anterior" nextLabel="Proximo"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+</div>

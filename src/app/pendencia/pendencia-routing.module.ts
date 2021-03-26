@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PendeciasListaComponent } from './pendecias-lista/pendecias-lista.component';
-import { PendeciasEditarComponent } from './pendecias-editar/pendecias-editar.component';
-import { PendeciasCriarComponent } from './pendecias-criar/pendecias-criar.component';
+import { PendenciaCadastroComponent } from './pendencia-cadastro/pendencia-cadastro.component';
 
 const routes: Routes = [
   {
@@ -12,11 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'novo',
-    component: PendeciasCriarComponent
+    component: PendenciaCadastroComponent
   },
   {
     path: ':id',
-    component: PendeciasEditarComponent
+    component: PendenciaCadastroComponent
   }
 ];
 

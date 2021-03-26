@@ -40,6 +40,7 @@ export class ClientesListaComponent implements OnInit {
     }
   }
 
+
   listarClientes(pagina) {
     this.paginaAtual = pagina;
     this.http.get(environment.apiUrl + 'Clientes', { params: { pagina: (this.paginaAtual - 1).toString() } }).subscribe((response: Resposta) => {

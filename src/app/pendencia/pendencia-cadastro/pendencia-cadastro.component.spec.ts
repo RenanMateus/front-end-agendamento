@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PendeciasEditarComponent } from './pendecias-editar.component';
+import { PendenciaCadastroComponent } from './pendencia-cadastro.component';
 
-describe('PendeciasEditarComponent', () => {
-  let component: PendeciasEditarComponent;
-  let fixture: ComponentFixture<PendeciasEditarComponent>;
+describe('PendenciaCadastroComponent', () => {
+  let component: PendenciaCadastroComponent;
+  let fixture: ComponentFixture<PendenciaCadastroComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PendeciasEditarComponent ]
+      declarations: [ PendenciaCadastroComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PendeciasEditarComponent);
+    fixture = TestBed.createComponent(PendenciaCadastroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
